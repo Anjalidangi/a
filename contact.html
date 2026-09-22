@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | Anjali Dangi</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+
+        <a href="index.html" class="logo">
+            Anjali Dangi
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="projects.html">
+                Projects
+            </a>
+
+            <a href="contact.html" class="btn-contact active">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+</header>
+
+
+<main class="container">
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header reveal">
+
+        <h1>Get In Touch</h1>
+
+        <p>
+            Feel free to connect with me for academic,
+            research, or professional opportunities.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT CONTENT -->
+
+    <section class="contact-grid">
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <article class="bento-card contact-info-card">
+
+            <span class="card-label">
+                Contact Information
+            </span>
+
+            <h2 class="card-title">
+                Let's Connect
+            </h2>
+
+          
+
+
+            <div class="contact-detail">
+
+                <span class="contact-detail-label">
+                    Email
+                </span>
+
+                <a href="mailto:anjali19dangi@gmail.com">
+                    anjali19dangi@gmail.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <span class="contact-detail-label">
+                    Phone
+                </span>
+
+                <a href="tel:+918527277438">
+                    +91 8527277438
+                </a>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <span class="contact-detail-label">
+                    Location
+                </span>
+
+                <span>
+                    New Delhi, India
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- CONNECT CARD -->
+
+        <article class="bento-card contact-main-card">
+
+            <span class="card-label">
+                Professional Profile
+            </span>
+
+            <h2>
+                Connect with me on LinkedIn
+            </h2>
+
+            <p>
+                For professional updates, academic interests,
+                projects, and opportunities, you can find me
+                on LinkedIn.
+            </p>
+
+
+            <div class="linkedin-box">
+
+                <div class="linkedin-icon">
+                    in
+                </div>
+
+                <div class="linkedin-content">
+
+                    <span class="linkedin-label">
+                        LinkedIn
+                    </span>
+
+                    <strong>
+                        Anjali Dangi
+                    </strong>
+
+                    <span>
+                        linkedin.com/in/anjali-dangi-anj
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="https://www.linkedin.com/in/anjali-dangi-anj"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary linkedin-button"
+            >
+                View LinkedIn Profile
+            </a>
+
+
+
+               
+
+               
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+
+  if (toggle && links) {
+    const close = () => {
+      links.classList.remove('active');
+      toggle.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Open navigation');
+    };
+    toggle.addEventListener('click', () => {
+      const open = !links.classList.contains('active');
+      links.classList.toggle('active', open);
+      toggle.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('click', e => {
+      if (window.innerWidth <= 768 && links.classList.contains('active') &&
+          !links.contains(e.target) && !toggle.contains(e.target)) close();
+    });
+  }
+
+  const reveal = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveal.forEach(el => observer.observe(el));
+  } else {
+    reveal.forEach(el => el.classList.add('is-visible'));
+  }
+});
+</script>
+
+</body>
+</html>s
