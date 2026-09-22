@@ -5,7 +5,7 @@ A professional academic portfolio showcasing my educational background, technica
 ## 🌐 Live Portfolio
 
 **Website:**  
-https://anjalidangi.github.io/
+https://anjalidangi.github.io/anjali-dangi-portfolio/
 
 ## 👩‍💻 About
 
